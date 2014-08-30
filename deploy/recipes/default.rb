@@ -7,7 +7,7 @@ node[:deploy].each do |application, deploy|
   end
 
 execute "install_update" do
-	command "yum update"
+	command "apt-get update"
 end
   
   package "git" do
