@@ -14,4 +14,9 @@ package "ngnix" do
 	action :install
 end
 
+python_pip "django" do
+  version "1.1.4"
+end
+
+
 end
