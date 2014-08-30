@@ -14,6 +14,22 @@ package "ngnix" do
 	action :install
 end
 
+service "ngnix" do
+	action[:enable,:start]
+	suport :reload => true
+	notifies :reload
+end
+
+package "gunicorn" do
+	action :install
+end
+
+service "gunicorn" do
+	action[:enable,:start]
+	suport :reload => true
+	notifies :reload
+end
+
 python_pip "django" do
   version "1.1.4"
 end
