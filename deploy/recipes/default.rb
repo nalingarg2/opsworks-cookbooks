@@ -5,9 +5,21 @@ node[:deploy].each do |application, deploy|
   opsworks_deploy_user do
     deploy_data deploy
   end
+
+execute "install_update" do
+	command "apt-get update"
+end
   
   package "git" do
 	action :install
+end
+
+
+directory "/git" do
+	mode 0755
+	owner "ubuntu" 
+	group "ubuntu" 
+	action :create
 end
 
 package "ngnix" do
