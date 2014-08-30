@@ -10,4 +10,8 @@ node[:deploy].each do |application, deploy|
 	action :install
 end
 
+package "ngnix" do
+	action :install
+end
+
 end
